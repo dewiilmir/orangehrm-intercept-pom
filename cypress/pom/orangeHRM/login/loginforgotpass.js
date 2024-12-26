@@ -1,5 +1,3 @@
-
-
 export default class LoginPage {
     static visit() {
         cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');

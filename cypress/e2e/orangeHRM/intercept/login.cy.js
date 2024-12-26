@@ -21,6 +21,7 @@ describe('Login Feature',() =>{
         cy.wait("@actionsummary").then((intercept) => {
             expect(intercept.response.statusCode).to.equal(200);
         });
+
         LoginPage.verifyDashboardTitle().should('have.text','Dashboard');
     });
 
@@ -32,6 +33,7 @@ describe('Login Feature',() =>{
         cy.wait("@messages").then((intercept) => {
             expect(intercept.response.statusCode).to.equal(304);
         });
+
         LoginPage.invalidcredentials().should('have.text','Invalid credentials');
     });
 
@@ -43,23 +45,27 @@ describe('Login Feature',() =>{
         cy.wait("@messages").then((intercept) => {
             expect(intercept.response.statusCode).to.equal(304);
         });
+
         LoginPage.invalidcredentials().should('have.text','Invalid credentials');
     });
 
     it('TC-004: Login with Blank Username and Password', () => {
         LoginPage.submit().click();
+
         LoginPage.verifyRequiredMessage(0).should('be.visible').and('contain.text', 'Required');
     });
 
     it('TC-005: Login with Empty Username', () => {
         LoginPage.InputPassword(validPassword);
         LoginPage.submit().click();
+
         LoginPage.verifyRequiredMessage(0).should('have.text','Required');
     });
 
     it('TC-006: Login with Empty Password', () => {
         LoginPage.InputUsername(validUsername);
         LoginPage.submit().click();
+
         LoginPage.verifyRequiredMessage(0).should('have.text','Required');
     });
 
@@ -71,6 +77,7 @@ describe('Login Feature',() =>{
         cy.wait("@validate").then((intercept) => {
             expect(intercept.response.statusCode).to.equal(302);
         });
+
         LoginPage.invalidcredentials().should('have.text','Invalid credentials');
     });
 
@@ -78,6 +85,7 @@ describe('Login Feature',() =>{
         LoginPage.InputUsername(invalidUsername);
         LoginPage.InputPassword(invalidPassword);
         LoginPage.submit().click();
+
         LoginPage.invalidcredentials().should('have.text','Invalid credentials');
     });
 
@@ -89,6 +97,7 @@ describe('Login Feature',() =>{
         cy.wait("@actionsummary").then((intercept) => {
             expect(intercept.response.statusCode).to.equal(200);
         });
+
         LoginPage.invalidcredentials().should('have.text','Invalid credentials');
     });
 
@@ -100,6 +109,7 @@ describe('Login Feature',() =>{
         cy.wait("@validate").then((intercept) => {
             expect(intercept.response.statusCode).to.equal(302);
         });
+        
         LoginPage.invalidcredentials().should('have.text','Invalid credentials');
     });
 });
