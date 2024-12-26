@@ -1,6 +1,6 @@
 ///<reference types="cypress"/>
 
-import LoginPage from "../../pom/login/loginforgotpass";
+import LoginPage from "../../../pom/orangeHRM/login/loginforgotpass";
 
 describe('Login Feature',() =>{
     const validUsername = 'Admin';

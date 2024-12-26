@@ -1,6 +1,6 @@
 ///<reference types="cypress"/>
 
-import LoginPage from "../../pom/login/loginpage";
+import LoginPage from "../../../pom/orangeHRM/login/login";
 
 describe('Login Feature',() =>{
   const validUsername = 'Admin';
